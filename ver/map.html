@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+		.goBack{
+			font-size: 20px;
+		    text-align: center;
+		    float: left;
+		    color: indianred;
+		    position: fixed;
+		    top: 0;
+		    z-index: 9;
+		    left: 38%;
+		    text-decoration: none;
+		}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=7tkVIZwnMaFaxZDRbMGVRNyliskSx5X2"></script>
+	<title>地图展示</title>
+</head>
+<body>
+	<a class="goBack" href="http://www.chen7.online">不行，不行，车速太快，我要下车</a>
+	<div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(138.877845,36.475397);
+	var marker = new BMap.Marker(point);  // 创建标注
+	map.addOverlay(marker);              // 将标注添加到地图中
+	map.centerAndZoom(point, 16);
+	var opts = {
+	  width : 200,     // 信息窗口宽度
+	  height: 130,     // 信息窗口高度
+	  title : "秋名山(榛名山)" , // 信息窗口标题
+	}
+	var infoWindow = new BMap.InfoWindow("秋名山，是由妙义，赤城，上毛山组成的一座双重式火山，尤其以四个惊险而陡峭的五连发夹弯出名，而且这里也是车神（ 卡哇一嫖 ）的发迹地。", opts);  // 创建信息窗口对象 
+     
+	map.openInfoWindow(infoWindow,point); //开启信息窗口
+	map.enableScrollWheelZoom(true);  
+</script>
